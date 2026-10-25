@@ -55,7 +55,7 @@ npm run dev
 
 ## 提案資料
 
-`proposal/ZeroSol-proposal.pdf` と `proposal/ZeroSol-proposal.html`。総合販売管理としての構想・作成済みデモ・未実装機能を区別して記載。
+`proposal/ZeroSol-proposal.pdf` と `proposal/ZeroSol-proposal.html`。OEM先・販売代理店の拡大と販売促進を支える協業基盤の提案。募集・初回提案・初回発注・継続取引をサポート体制で支える構想を記載。本文は `proposal/ZeroSol-proposal.md` でも確認できます。作成済みデモと今後の本番化・支援体制の整備を区別しています。
 
 ## Netlify
 
