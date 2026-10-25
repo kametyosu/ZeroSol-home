@@ -1,0 +1,6 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {createOemRequest,cancelOemRequest} from '../public/oem-model.js';
+const input={type:'quote',product:'OEM-SHEET',qty:'10',brand:'ブランドA',requestedDate:'2026-12-01',notes:'自社ラベル希望'};
+test('OEM依頼は未送信の希望として商品・数量・納期を保存',()=>{const r=createOemRequest(input,{id:'q1',now:'2026-10-25T00:00:00Z'});assert.equal(r.qty,10);assert.equal(r.status,'recorded');assert.equal(r.requestedDate,'2026-12-01');assert.equal(r.type,'quote');assert.equal('confirmedDate' in r,false);assert.equal(createOemRequest({...input,type:'order'}).type,'order')});
+test('不正な商品・数量・納期・空ブランドを拒否',()=>{for(const patch of [{product:'unknown'},{type:'ship'},{qty:0},{qty:1.5},{qty:1000001},{brand:'  '},{requestedDate:'2026-02-30'},{requestedDate:'invalid'}])assert.throws(()=>createOemRequest({...input,...patch}))});
+test('OEM記録取消は対象のみ変更し、二重取消を拒否',()=>{const r=createOemRequest(input,{id:'q1'}),other=createOemRequest(input,{id:'q2'});const next=cancelOemRequest([r,other],'q1');assert.equal(r.status,'recorded');assert.equal(next[0].status,'cancelled');assert.equal(next[1].status,'recorded');assert.throws(()=>cancelOemRequest(next,'q1'));assert.throws(()=>cancelOemRequest(next,'missing'))});
