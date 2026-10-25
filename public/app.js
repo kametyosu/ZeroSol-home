@@ -1,4 +1,4 @@
-import {setupPortal,portalPage,portalSummary} from './portal.js';
+import {setupPortal,portalPage,portalSummary,openPortalOrder} from './portal.js';
 import {setupOem,oemPage,oemOrderArchive} from './oem.js';
 import {setupSales,salesPage,salesSummary} from './sales.js';
 import {stages,estimate,visibleProjects,customerLabel} from './model.js';
@@ -56,5 +56,5 @@ document.addEventListener('input',e=>{if(e.target.id==='search'){search=e.target
 document.addEventListener('submit',e=>{const f=e.target;if(!['new-form','survey-form','quote-form','consult-form'].includes(f.id))return;e.preventDefault();const d=Object.fromEntries(new FormData(f));if(f.id==='new-form'){const p={...d,id:Date.now(),dealer:role==='manufacturer'?d.dealer:'東海エコソリューション',stage:0,area:Number(d.area),shared:!!d.shared,product:d.issue.includes('窓')?'窓コーティング':d.issue.includes('空気')?'HVLS':'遮熱シート',date:new Date().toISOString().slice(0,10).replaceAll('-','.')};projects.unshift(p);persist();dialog.close();view='projects';render();toast('案件を登録しました。詳細から次のステップへ進めます。')}else{const p=current(f.dataset.id);if(!p)return;if(f.id==='survey-form'){p.survey={...d,scaffold:!!d.scaffold};persist();dialog.close();render();toast('現場調査を保存しました（写真は保存されません）')}if(f.id==='consult-form'){p.messages??=[];p.messages.push({text:d.text,role,date:new Date().toLocaleDateString('ja-JP')});persist();consult(p.id);toast('相談履歴を記録しました（外部への送信はありません）')}if(f.id==='quote-form'){const result=estimate(d.area,d.product,!!d.scaffold);document.querySelector('#quote-result').innerHTML=`<div class="result"><span class="eyebrow">ESTIMATED COST / 概算</span><strong>${yen(result.total)} <small style="font-size:12px">税込</small></strong><div class="quote-lines">材料費：${yen(result.materials)}<br>施工費（仮単価 2,200円/㎡）：${yen(result.labor)}<br>足場費：${yen(result.scaffold)}</div><p>提案候補：${esc(d.product)} ／ ${esc(d.area)} ㎡<br>課題：${esc(p.issue)}</p><p>※ 参考金額です。屋根形状・下地・地域・搬入条件により変動します。省エネ効果や温度低下を保証するものではありません。</p><button class="secondary" data-print>提案資料を印刷 / PDF保存</button> <button class="primary" data-consult="${p.id}">正式見積に向けて相談</button></div>`}}});
 setupPortal({mode:()=>mode,role:()=>role,modal,toast,render});
 setupOem({active:()=>mode==='oem',modal,toast,render});
-setupSales({role:()=>role,projects:list,modal,toast,render});
+setupSales({portalDetail:openPortalOrder,role:()=>role,projects:list,modal,toast,render});
 render();
