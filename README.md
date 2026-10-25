@@ -112,3 +112,7 @@ OutlookアプリでGmailを使う場合も、直接送信の連携先はGmail AP
 ### PDFエンジンとフォント
 
 `src/quote-pdf.js` が原本、`npm run build` で `public/quote-pdf.js` にバンドル。ブラウザは発行時に遅延ロードします。`public/fonts/ZeroSolJP.ttf` はNoto Sans JPを静的400ウェイト化して名称変更したもの。ライセンスと出典・チェックサムは同ディレクトリのOFL.txt・SOURCE.txtに収録。
+
+## サイト共通デザイン
+
+提案資料と合わせ、提供ロゴの清書版をホーム・サイドバーに使用。白と淡いブルーの配色、読みやすい文字サイズ、3モードの入口と協業支援のメッセージを反映しています。共通スタイルは `public/theme.css`、ロゴは `public/assets/zerosol-logo.png`。業務ロジック・保存済みデータ・モード構成は維持しています。
