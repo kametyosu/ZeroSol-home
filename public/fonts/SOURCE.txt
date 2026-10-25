@@ -1,0 +1,5 @@
+Source: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf
+License: SIL Open Font License 1.1; see OFL.txt
+Derived static weight 400 with fontTools 4.61.1, renamed ZeroSol JP.
+Original SHA-256: c2f3b4d463500a2ddcd3849cded1fceeb9fd6d1c32e6cbecd568453ba50fc68f
+Static font SHA-256: 70b23b75409835494b852823c44937996c83f0281ab0bb49fc66cac6b15084aa
