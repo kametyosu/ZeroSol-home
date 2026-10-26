@@ -15,3 +15,13 @@ export function createOemRequest(input,{id=globalThis.crypto.randomUUID(),now=ne
  return {id,type:input.type,product:product.id,qty,brand,notes,requestedDate:date,status:'recorded',created:now};
 }
 export function cancelOemRequest(requests,id){const request=requests.find(r=>r.id===id);if(!request||request.status!=='recorded')throw Error('この依頼は取り消せません');return requests.map(r=>r.id===id?{...r,status:'cancelled'}:{...r});}
+
+export function replyOemRequest(requests,id,input){
+ const request=requests.find(r=>r.id===id&&r.type==='quote');
+ if(!request||request.status!=='recorded')throw Error('未回答の見積依頼を選択してください');
+ const price=Number(input.price),confirmedDate=String(input.confirmedDate||''),reply=String(input.reply||'').trim();
+ if(!Number.isSafeInteger(price)||price<0||price>1e9)throw Error('単価は0〜10億円の整数で入力してください');
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(confirmedDate)||!Number.isFinite(Date.parse(confirmedDate+'T00:00:00Z'))||new Date(confirmedDate+'T00:00:00Z').toISOString().slice(0,10)!==confirmedDate)throw Error('出荷予定日を正しく入力してください');
+ if(!reply||reply.length>3000)throw Error('供給条件は1〜3000文字で入力してください');
+ return requests.map(r=>r.id===id?{...r,status:'responded',price,confirmedDate,reply}:r);
+}

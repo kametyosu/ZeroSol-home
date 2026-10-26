@@ -1,1 +1,39 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZeroSol | 伴走型 業務プラットフォーム</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/theme.css"></head><body><div class="app"><aside><a class="brand" href="/" aria-label="ZeroSol ホーム"><img class="site-logo" src="/assets/zerosol-logo.png" alt="ZeroSol エネルギーを使わない、省エネの未来へ。" width="2170" height="725"><small>SALES MANAGEMENT</small></a><div class="workspace">Z <div><span id="workspace-name">ZeroSol</span><small>東海エコソリューション</small></div></div><label class="nav-label">WORKSPACE</label><nav><button data-view="dashboard" class="active">▦ <span>ダッシュボード</span></button><button data-workspace="platform" data-view="projects">▤ <span>案件管理</span><b>6</b></button><a class="external-survey-link" data-workspace="platform" href="https://genba-chosa-demo.netlify.app/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span><span>現場調査アプリ</span></a><button data-workspace="platform" data-view="survey">▧ <span>調査記録</span></button><button data-workspace="platform" data-view="quotes">▱ <span>概算・提案支援</span></button><button data-workspace="sales" data-view="registered-quotes">▱ <span>見積登録</span></button><button data-workspace="sales" data-view="inventory">▦ <span>商品・在庫</span></button><button data-workspace="sales" data-manufacturer-only data-view="customer-inbox">⇄ <span>顧客発注の受付</span></button><button data-workspace="sales" data-view="orders">↗ <span>受注・出荷</span></button><button data-workspace="platform" data-customer-only data-view="customer-stock">▦ <span>自社在庫・補充</span></button><button data-workspace="platform" data-customer-only data-view="customer-orders">↗ <span>発注・配送</span></button><button data-workspace="platform" data-view="consult">☏ <span>技術相談</span><i></i></button><button data-workspace="oem" data-view="oem-products">◇ <span>OEM商品・供給条件</span></button><button data-workspace="oem" data-view="oem-quotes">▱ <span>OEM見積依頼</span></button><button data-workspace="oem" data-customer-only data-view="customer-stock">▦ <span>自社在庫・補充</span></button><button data-workspace="oem" data-view="oem-orders">↗ <span>OEM発注・納期</span></button></nav><label class="nav-label">SUPPORT</label><nav><button data-workspace="platform" data-view="products">◇ <span>商材ライブラリ</span></button><button data-view="guide">ⓘ <span>ご利用ガイド</span></button></nav><div class="help"><div class="help-icon">✧</div><strong>提案に、もっと自信を。</strong><p>商材選びから施工まで、<br>ZeroSolがサポートします。</p><button data-workspace="platform" data-view="consult">メーカーに相談する ↗</button></div><div class="profile"><div class="avatar">田</div><div><span id="profile-name">田中 健太</span><small>販売店アカウント</small></div><span>⌄</span></div></aside><div class="main"><header><div class="breadcrumb"><span id="mode-crumb">ZeroSol</span> <span>/</span> <b id="crumb">ダッシュボード</b></div><div class="header-right"><button class="mode-switch" data-switch-mode>⇄ モード選択</button><span class="demo">DEMO</span><select id="role" aria-label="表示する役割"><option value="dealer">販売店ビュー</option><option value="manufacturer" selected>ZeroSol本部ビュー</option></select><span class="avatar small">田</span></div></header><main id="main-content"><div id="content"></div><section id="page-screen" class="page-screen" hidden></section></main><footer>© 2026 ZeroSol Business Platform <span>Developed & operated by IKS</span></footer></div></div><div id="toast" role="status"></div><script type="module" src="/app.js"></script></body></html>
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ZeroSol | ビジネスポータル</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/business.css"></head>
+<body><div class="app">
+<aside>
+<a class="brand" href="#/" aria-label="説明用の会社別入口へ"><img class="site-logo" src="/assets/zerosol-logo.png" alt="ZeroSol" width="2170" height="725"><small>BUSINESS PORTAL</small></a>
+<div class="workspace"><span class="company-mark" id="company-mark">Z</span><div><span id="workspace-name">ZeroSol本部</span><small>本部管理サイト</small></div></div>
+<label class="nav-label">業務メニュー</label>
+<nav aria-label="業務メニュー">
+<button data-view="dashboard" class="active">▦ <span>ホーム</span></button>
+<button data-workspace="sales" data-view="customer-inbox">⇄ <span>注文受付・納期回答</span></button>
+<button data-workspace="sales" data-view="registered-quotes">▱ <span>見積書管理</span></button>
+<button data-workspace="sales" data-view="inventory">▤ <span>本部在庫・入出庫</span></button>
+<button data-workspace="sales" data-view="orders">↗ <span>受注・出荷管理</span></button>
+<button data-workspace="sales" data-view="survey-requests">▧ <span>調査依頼の受付・発行</span></button>
+<button data-workspace="sales" data-view="oem-requests">◇ <span>OEM見積への回答</span></button>
+<button data-workspace="platform" data-view="projects">▤ <span>自社の案件管理</span><b>6</b></button>
+<button data-workspace="platform" data-view="survey-requests">▧ <span>現場調査を依頼</span></button>
+<a class="external-survey-link" data-workspace="platform" href="https://genba-chosa-demo.netlify.app/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span><span>現場調査アプリ</span></a>
+<button data-workspace="platform" data-view="survey">▧ <span>案件の調査記録</span></button>
+<button data-workspace="platform" data-view="quotes">▱ <span>概算・提案支援</span></button>
+<button data-workspace="platform" data-view="customer-stock">▤ <span>自社在庫・補充発注</span></button>
+<button data-workspace="platform" data-view="customer-orders">↗ <span>発注履歴・入荷確認</span></button>
+<button data-workspace="platform" data-view="consult">☏ <span>ZeroSolへの技術相談</span></button>
+<button data-workspace="oem" data-view="oem-products">◇ <span>OEM商品・供給条件</span></button>
+<button data-workspace="oem" data-view="oem-quotes">▱ <span>見積依頼・回答確認</span></button>
+<button data-workspace="oem" data-view="survey-requests">▧ <span>現場調査を依頼</span></button>
+<button data-workspace="oem" data-view="customer-stock">▤ <span>自社在庫・入出庫</span></button>
+<button data-workspace="oem" data-view="oem-orders">↗ <span>発注履歴・入荷確認</span></button>
+</nav>
+<label class="nav-label">サポート</label><nav aria-label="サポート"><button data-workspace="platform" data-view="products">◇ <span>商材・提案資料</span></button><a class="proposal-link" href="/ZeroSol-proposal-revised.pdf" target="_blank" rel="noopener noreferrer">▱ <span>ご提案資料（PDF）</span></a><button data-view="guide">ⓘ <span>ご利用ガイド</span></button></nav>
+<div class="help"><strong>ZeroSol パートナーサポート</strong><p>商品選定・施工についてのご相談</p><button data-workspace="platform" data-view="consult">技術相談を開く →</button></div>
+<div class="profile"><div class="avatar">田</div><div><span id="profile-name">田中 健太</span><small>販売店・営業担当</small></div></div>
+</aside>
+<div class="main"><div class="site-context"><span id="site-identity">ZeroSol ビジネスポータル</span><span>説明用デモ・架空データ</span></div>
+<header><div class="breadcrumb"><span id="mode-crumb">ZeroSol</span><span>/</span><b id="crumb">ホーム</b></div><div class="header-right"><span class="account-company" id="account-company"></span><button class="mode-switch" data-switch-mode>説明用：会社別入口へ</button><span class="avatar small">田</span></div></header>
+<main id="main-content"><div id="content"></div><section id="page-screen" class="page-screen" hidden></section></main>
+<footer><span>© 2026 ZeroSol Business Portal</span><span>データはこのブラウザ内に保存されます</span></footer></div></div>
+<div id="toast" role="status"></div><script type="module" src="/app.js"></script></body></html>
